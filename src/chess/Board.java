@@ -1,20 +1,23 @@
 package chess;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pieces.Piece;
 import pieces.Position;
 
 class Board {
-	static final String NEW_LINE = System.getProperty("line.separator");
+	public static final String NEW_LINE = System.getProperty("line.separator");
+	public static final int ROW_SIZE = 8;
+	public static final int COLUMN_SIZE = 8;
 	
-	ArrayList<Rank> ranks = new ArrayList<Rank>();
+	List<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
 	}
 
 	void initialize() {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < ROW_SIZE; i++) {
 			Rank rank = new Rank(i);
 			if (i==0) {
 				rank.initializeWhiteExceptPawn();
@@ -32,7 +35,7 @@ class Board {
 	}
 	
 	void initializeEmpty() {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < ROW_SIZE; i++) {
 			Rank rank = new Rank(i);
 			rank.initializeEmpty();
 			ranks.add(rank);
@@ -48,7 +51,7 @@ class Board {
 
 	String print() {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 8; i > 0; i--) {
+		for (int i = ROW_SIZE; i > 0; i--) {
 			sb.append(printRank(i-1) + NEW_LINE);
 		}
 		return sb.toString();
