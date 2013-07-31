@@ -1,7 +1,9 @@
 package pieces;
 
+import java.util.List;
 
-public class Piece {
+
+public abstract class Piece {
 	public enum Color {
 		WHITE,
 		BLACK,
@@ -73,6 +75,8 @@ public class Piece {
 		this.position = target;
 		return this;
 	}
+	
+	abstract List<Position> getPossibleMoves();
 	
 	@Override
 	public int hashCode() {
