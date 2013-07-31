@@ -1,7 +1,12 @@
 package chess;
 
 import junit.framework.TestCase;
+import pieces.King;
+import pieces.Pawn;
 import pieces.Piece;
+import pieces.Piece.Color;
+import pieces.Position;
+import pieces.Queen;
 
 public class RankTest extends TestCase {
 	static final String EMPTY_RANK = "........";
@@ -45,10 +50,23 @@ public class RankTest extends TestCase {
 	
 	public void testFindPiece() throws Exception {
 		rank.initializeWhiteExceptPawn();
-		Piece queen = rank.findPiece(3);
-		assertEquals('q', queen.getSymbol());
+		Position position = new Position("d1");
+		assertEquals(new Queen(Color.WHITE, position), rank.findPiece(position));
 		
-		Piece king = rank.findPiece(4);
-		assertEquals('k', king.getSymbol());
+		position = new Position("e1");
+		assertEquals(new King(Color.WHITE, position), rank.findPiece(position));
+	}
+	
+	public void testMove() throws Exception {
+		rank = new Rank(1);
+		rank.initializeWhitePawn();
+		Position source = new Position("d2");
+		Position target = new Position("d3");
+		
+		Piece sourcePiece = rank.findPiece(source);
+		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
+		
+		Piece targetPiece = rank.move(sourcePiece, target);
+		assertEquals(new Pawn(Color.WHITE, target), targetPiece);
 	}
 }

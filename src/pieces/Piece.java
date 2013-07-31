@@ -38,14 +38,6 @@ public class Piece {
 		this.position = position;
 	}
 	
-	Color getColor() {
-		return this.color;
-	}
-	
-	Position getPosition() {
-		return position;
-	}
-	
 	public char getSymbol() {
 		if (isBlack()) {
 			return Character.toUpperCase(type.getSymbol());
@@ -69,21 +61,17 @@ public class Piece {
         return false;
     }
     
-	public boolean matchColorAndType(Color color, Type type) {
-		if (matchColor(color) && this.type == type) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public boolean matchColor(Color color) {
+	boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 
-	public void changePiece(Piece targetPiece) {
-		this.color = targetPiece.color;
-		this.type = targetPiece.type;
+	public Piece leave() {
+		return new Empty(Color.NOCOLOR, this.position);
+	}
+	
+	public Piece move(Position target) {
+		this.position = target;
+		return this;
 	}
 	
 	@Override

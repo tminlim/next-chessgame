@@ -42,6 +42,31 @@ class Board {
 		}
 	}
 
+	Piece findPiece(String xy) {
+		Position position = new Position(xy);
+		return findPiece(position);
+	}
+
+	Piece findPiece(Position position) {
+		Rank rank = ranks.get(position.getY());
+		return rank.findPiece(position);
+	}
+
+	void movePiece(String source, String target) {
+		movePiece(new Position(source), new Position(target));
+	}
+
+	void movePiece(Position source, Position target) {
+		Piece targetPiece = findPiece(source);
+		Piece sourcePiece = targetPiece.leave();
+		
+		Rank sourceRank = ranks.get(source.getY());
+		sourceRank.move(sourcePiece, source);
+		
+		Rank targetRank = ranks.get(target.getY());
+		targetRank.move(targetPiece, target);
+	}
+	
 	String printRank(int rankIndex) {
 		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();
@@ -55,25 +80,5 @@ class Board {
 			sb.append(printRank(i-1) + NEW_LINE);
 		}
 		return sb.toString();
-	}
-
-	Piece findPiece(String xy) {
-		Position position = new Position(xy);
-		return findPiece(position);
-	}
-
-	Piece findPiece(Position position) {
-		Rank rank = ranks.get(position.getY());
-		return rank.findPiece(position.getX());
-	}
-
-	void addPiece(String xy, Piece targetPiece) {
-		Position position = new Position(xy);
-		movePiece(position, targetPiece);
-	}
-
-	void movePiece(Position position, Piece targetPiece) {
-		Rank rank = ranks.get(position.getY());
-		rank.changePiece(position.getX(), targetPiece);
 	}
 }

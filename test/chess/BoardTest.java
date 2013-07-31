@@ -2,7 +2,8 @@ package chess;
 
 import junit.framework.TestCase;
 import pieces.Empty;
-import pieces.King;
+import pieces.Pawn;
+import pieces.Piece;
 import pieces.Piece.Color;
 import pieces.Position;
 
@@ -51,12 +52,15 @@ public class BoardTest extends TestCase {
 	}
 	
 	public void testMovePiece() throws Exception {
-		board.initializeEmpty();
-		Position position = new Position("a1");
-		assertEquals(new Empty(Color.NOCOLOR, position), board.findPiece(position));
+		board.initialize();
+		Position source = new Position("a2");
+		Piece sourcePiece = board.findPiece(source);
+		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
-		King blackKing = new King(Color.BLACK, position);
-		board.movePiece(position, blackKing);
-		assertEquals(blackKing, board.findPiece(position));
+		Position target = new Position("a3");
+		board.movePiece(source, target);
+		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
+		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
+		System.out.println(board.print());
 	}
 }
