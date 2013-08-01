@@ -64,7 +64,7 @@ public class Rank {
 		rank.add(new Rook(Color.BLACK, new Position(7, rankPosition)) );
 	}
 
-	String print() {
+	String generate() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < Board.COLUMN_SIZE; i++) {
 			sb.append(rank.get(i).getSymbol());

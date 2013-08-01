@@ -17,8 +17,8 @@ public class BoardTest extends TestCase {
 	
 	public void testCreate() throws Exception {
 		board.initialize();
-		assertEquals(RankTest.WHITE_PAWN_RANK, board.printRank(1));
-		assertEquals(RankTest.BLACK_PAWN_RANK, board.printRank(6));
+		assertEquals(RankTest.WHITE_PAWN_RANK, board.generateRank(1));
+		assertEquals(RankTest.BLACK_PAWN_RANK, board.generateRank(6));
 	}
 	
 	public void testPrint() throws Exception {
@@ -32,8 +32,8 @@ public class BoardTest extends TestCase {
 			createEmptyRank() +
 			RankTest.WHITE_PAWN_RANK + Board.NEW_LINE +
 			RankTest.WHITE_EXCEPT_PAWN_RANK + Board.NEW_LINE;
-		assertEquals(expected, board.print());
-		System.out.println(board.print());
+		assertEquals(expected, board.generateBoard());
+		System.out.println(board.generateBoard());
 	}
 	
 	private String createEmptyRank() {
@@ -48,7 +48,7 @@ public class BoardTest extends TestCase {
 	
 	public void testInitializeEmpty() throws Exception {
 		board.initializeEmpty();
-		System.out.println(board.print());
+		System.out.println(board.generateBoard());
 	}
 	
 	public void testMovePiece() throws Exception {
@@ -61,6 +61,6 @@ public class BoardTest extends TestCase {
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
-		System.out.println(board.print());
+		System.out.println(board.generateBoard());
 	}
 }

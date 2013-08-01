@@ -24,28 +24,28 @@ public class RankTest extends TestCase {
 	
 	public void testInitializeEmpty() throws Exception {
 		rank.initializeEmpty();
-		assertEquals(EMPTY_RANK, rank.print());
+		assertEquals(EMPTY_RANK, rank.generate());
 	}
 	
 	public void testInitializeWhitePawn() throws Exception {
 		rank.initializeWhitePawn();
-		assertEquals(WHITE_PAWN_RANK, rank.print());
+		assertEquals(WHITE_PAWN_RANK, rank.generate());
 	}
 	
 	
 	public void testInitializeBlackPawn() throws Exception {
 		rank.initializeBlackPawn();
-		assertEquals(BLACK_PAWN_RANK, rank.print());
+		assertEquals(BLACK_PAWN_RANK, rank.generate());
 	}
 	
 	public void testInitializeWhiteExceptPawn() throws Exception {
 		rank.initializeWhiteExceptPawn();
-		assertEquals(WHITE_EXCEPT_PAWN_RANK, rank.print());
+		assertEquals(WHITE_EXCEPT_PAWN_RANK, rank.generate());
 	}
 	
 	public void testInitializeBlackExceptPawn() throws Exception {
 		rank.initializeBlackExceptPawn();
-		assertEquals(BLACK_EXCEPT_PAWN_RANK, rank.print());
+		assertEquals(BLACK_EXCEPT_PAWN_RANK, rank.generate());
 	}
 	
 	public void testFindPiece() throws Exception {

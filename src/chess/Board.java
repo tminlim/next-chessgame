@@ -67,17 +67,17 @@ class Board {
 		targetRank.move(targetPiece, target);
 	}
 	
-	String printRank(int rankIndex) {
+	String generateRank(int rankIndex) {
 		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();
-		sb.append(rank.print());
+		sb.append(rank.generate());
 		return sb.toString();
 	}
 
-	String print() {
+	String generateBoard() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(printRank(i-1) + NEW_LINE);
+			sb.append(generateRank(i-1) + NEW_LINE);
 		}
 		return sb.toString();
 	}
