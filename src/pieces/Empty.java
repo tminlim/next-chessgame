@@ -8,7 +8,6 @@ public class Empty extends Piece {
 		super(color, Type.EMPTY, position);
 	}
 
-	@Override
 	List<Position> getPossibleMoves() {
 		List<Position> empty = new ArrayList<Position>();
 		return empty;
