@@ -1,11 +1,14 @@
 package chess;
-
+/**
+ * @auther 임정민
+ * 잘 부탁 드립니다.
+ */
 import java.util.ArrayList;
 import java.util.List;
 
 import pieces.Piece;
 import pieces.Position;
-//사모사모사모해 나를.
+//사모사모사모해 나를 
 public class Board {
 	public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
