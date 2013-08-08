@@ -9,7 +9,7 @@ public class Empty extends Piece {
 	}
 
 	List<Position> getPossibleMoves() {
-		List<Position> empty = new ArrayList<Position>();
+		List<Position> empty = new ArrayList<Position>();//왜 List<Position>하면 난리나지?
 		return empty;
 	}
 }
