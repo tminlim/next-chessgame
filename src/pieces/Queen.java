@@ -1,7 +1,7 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
-
 
 public class Queen extends Piece {
 	public Queen(Color color, Position position) {
@@ -10,6 +10,11 @@ public class Queen extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		List<Position> listPosition = new ArrayList<Position>();
+		PositionController controller = new PositionController(position);
+		listPosition.addAll(controller.findsDiagonalPositionAll());
+		listPosition.addAll(controller.findsLinearPositionAll());
+
+		return listPosition;
 	}
 }

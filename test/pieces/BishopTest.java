@@ -1,3 +1,5 @@
+package pieces;
+
 import pieces.Bishop;
 import pieces.Position;
 import pieces.Piece.Color;
