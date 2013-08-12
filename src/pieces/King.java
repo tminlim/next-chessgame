@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class King extends Piece {
@@ -12,4 +13,3 @@ public class King extends Piece {
 		return null;
 	}
 }
-

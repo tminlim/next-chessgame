@@ -13,7 +13,7 @@ public class Position {
 
 	public Position(String position) 
 	{
-		// 에러 상태에 대한 처리 필요함.
+		// ��� �������� 泥�━ �����
 		this.x = generateColumnIndex(position.charAt(0));
 		this.y = Integer.parseInt(position.substring(1)) - 1;
 	}
@@ -50,6 +50,7 @@ public class Position {
 		}
 		return positions;
 	}
+	
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {

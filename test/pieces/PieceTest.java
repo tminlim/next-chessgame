@@ -49,6 +49,5 @@ public class PieceTest extends TestCase {
 	public void testQueen() throws Exception {
 		Queen queen = new Queen(Color.WHITE, source);
 		assertEquals(21, queen.getPossibleMoves().size());
-
 	}
 }
